@@ -104,7 +104,6 @@ export function BankrollCapSlider() {
               fill="var(--color-expect-2)"
               stroke="var(--color-bg)"
               strokeWidth={2}
-              isFront
             />
           </LineChart>
         </ResponsiveContainer>

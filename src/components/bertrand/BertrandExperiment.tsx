@@ -68,7 +68,7 @@ export function BertrandExperiment() {
 
       while (revealed < targetRevealed) {
         const chord = batch[revealed];
-        canvas.drawChord(chord);
+        canvas!.drawChord(chord);
         if (chord.longerThanSide) longer++;
         revealed++;
       }
