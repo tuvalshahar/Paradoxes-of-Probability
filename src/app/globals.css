@@ -1,26 +1,74 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-bg: #0b0e14;
+  --color-bg-elevated: #12151f;
+  --color-fg: #e6e6eb;
+  --color-muted: #8a8fa3;
+  --color-border: #232838;
+
+  /* "Expectation" lane — what the math says */
+  --color-expect: #6c63ff;
+  --color-expect-2: #22d3ee;
+
+  /* "Reality" lane — what a rational person would do */
+  --color-reality: #ff8a65;
+  --color-reality-2: #f59e0b;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-background: var(--color-bg);
+  --color-background-elevated: var(--color-bg-elevated);
+  --color-foreground: var(--color-fg);
+  --color-muted: var(--color-muted);
+  --color-border: var(--color-border);
+  --color-expect: var(--color-expect);
+  --color-expect-2: var(--color-expect-2);
+  --color-reality: var(--color-reality);
+  --color-reality-2: var(--color-reality-2);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans:
+    "Sora", -apple-system, BlinkMacSystemFont, "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-body:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:
+    "IBM Plex Mono", ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-body);
+  background-image:
+    radial-gradient(circle at 20% -10%, rgba(108, 99, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 90% 10%, rgba(255, 138, 101, 0.08), transparent 35%);
+}
+
+::selection {
+  background: var(--color-expect);
+  color: var(--color-fg);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
